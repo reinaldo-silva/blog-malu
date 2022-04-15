@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Mirande";
+  src: url("/fonts/Mirande.ttf");
+  font-style: normal;
+}
+@font-face {
+  font-family: "New york";
+  src: url("/fonts/NewYork.otf");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Yeseva one";
+  src: url("/fonts/YesevaOne.ttf");
+  font-style: normal;
+}
