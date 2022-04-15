@@ -3,12 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "next"
-  ],
+  "extends": ["next/core-web-vitals", "prettier", "next"],
   "ignorePatterns": ["*.test.js", "*.test.tsx"],
   "plugins": ["@typescript-eslint", "prettier"],
   "parserOptions": {
