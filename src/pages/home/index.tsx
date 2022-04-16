@@ -23,7 +23,7 @@ const Home: React.FC = () => {
           padding="1rem"
         >
           <Link href="#moda">Moda</Link>
-          <Link href="#veg">Vegetarianismo</Link>
+          <Link href="#make">Make up</Link>
         </Flex>
         <SectionTheme
           title="Quem sou eu"
@@ -45,13 +45,13 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis eligendi digni
         />
 
         <SectionTheme
-          title="Vegetarianismo"
+          title="Make up"
           description="
 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis eligendi dignissimos aspernatur inventore ullam, sunt explicabo voluptatibus optio dicta labore, neque repellendus sed commodi itaque consectetur voluptate provident perferendis. Labore alias cupiditate dolore, consequatur iure beatae tenetur, dolores rem voluptates itaque illo ipsam velit? Nam asperiores laudantium repellendus iste distinctio."
-          srcImage="/images/veg.jpeg"
+          srcImage="/images/make.jpeg"
           learnMore
           bg="#999b85"
-          id="veg"
+          id="make"
         />
 
         <Footer />

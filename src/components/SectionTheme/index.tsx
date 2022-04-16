@@ -1,5 +1,12 @@
-import { Flex, Heading, Icon, Link, Text } from '@chakra-ui/react';
-import React from 'react';
+import {
+  Flex,
+  Heading,
+  Icon,
+  Link,
+  Text,
+  useMediaQuery,
+} from '@chakra-ui/react';
+import React, { useEffect } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import ImageComp from '../Image';
 
@@ -22,6 +29,13 @@ const SectionTheme: React.FC<SectionThemeProps> = ({
   bg,
   id,
 }) => {
+  const [isLargerThan900] = useMediaQuery('(max-width: 900px)');
+  const [isLargerThan650] = useMediaQuery('(max-width: 650px)');
+
+  useEffect(() => {
+    console.log(isLargerThan900);
+  }, [isLargerThan900]);
+
   return (
     <Flex
       height="auto"
@@ -30,18 +44,28 @@ const SectionTheme: React.FC<SectionThemeProps> = ({
       gap="2rem"
       flexDirection={invertComponents ? 'row-reverse' : 'row'}
     >
-      <Flex width="calc(100% - 400px)" flexDirection="column" gap="2rem">
+      <Flex
+        width={!isLargerThan900 ? 'calc(100% - 400px)' : '100%'}
+        flexDirection="column"
+        gap="2rem"
+      >
         <Heading
           w="100%"
           fontFamily="New york"
           fontWeight="normal"
-          fontSize="4.5rem"
+          fontSize={isLargerThan650 ? '3rem' : '4.5rem'}
           id={id}
+          textAlign={isLargerThan900 ? 'center' : 'left'}
         >
           {title}
         </Heading>
 
-        <Flex justifyContent="space-between" alignItems="flex-end">
+        <Flex
+          flexDirection={isLargerThan900 ? 'column' : 'row'}
+          justifyContent="space-between"
+          alignItems={isLargerThan900 ? 'center' : 'flex-end'}
+          gap="1rem"
+        >
           <Flex
             padding="1rem"
             height="auto"
@@ -66,21 +90,23 @@ const SectionTheme: React.FC<SectionThemeProps> = ({
           )}
         </Flex>
       </Flex>
-      <Flex
-        width="40%"
-        height="auto"
-        borderRadius="92px 8px 92px 8px"
-        justifyContent="center"
-        padding="4rem 0"
-      >
-        <ImageComp
-          src={srcImage}
-          height="400px"
-          width="300px"
-          layout="fill"
-          objectFit="contain"
-        />
-      </Flex>
+      {!isLargerThan900 && (
+        <Flex
+          width="40%"
+          height="auto"
+          borderRadius="92px 8px 92px 8px"
+          justifyContent="center"
+          padding="4rem 0"
+        >
+          <ImageComp
+            src={srcImage}
+            height="400px"
+            width="300px"
+            layout="fill"
+            objectFit="contain"
+          />
+        </Flex>
+      )}
     </Flex>
   );
 };
