@@ -13,3 +13,7 @@
   src: url("/fonts/YesevaOne.ttf");
   font-style: normal;
 }
+
+html {
+  scroll-behavior: smooth;
+}

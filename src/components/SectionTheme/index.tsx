@@ -5,14 +5,28 @@ import ImageComp from '../Image';
 
 interface SectionThemeProps {
   invertComponents?: boolean;
+  title: string;
+  description: string;
+  learnMore?: boolean;
+  srcImage: string;
+  bg: string;
+  id: string;
 }
 
-const SectionTheme: React.FC<SectionThemeProps> = ({ invertComponents }) => {
+const SectionTheme: React.FC<SectionThemeProps> = ({
+  invertComponents,
+  title,
+  description,
+  learnMore,
+  srcImage,
+  bg,
+  id,
+}) => {
   return (
     <Flex
       height="auto"
       w="100%"
-      padding="1rem 3rem"
+      padding="2rem 3rem"
       gap="2rem"
       flexDirection={invertComponents ? 'row-reverse' : 'row'}
     >
@@ -21,9 +35,10 @@ const SectionTheme: React.FC<SectionThemeProps> = ({ invertComponents }) => {
           w="100%"
           fontFamily="New york"
           fontWeight="normal"
-          fontSize="5rem"
+          fontSize="4.5rem"
+          id={id}
         >
-          Quem sou eu
+          {title}
         </Heading>
 
         <Flex justifyContent="space-between" alignItems="flex-end">
@@ -31,29 +46,24 @@ const SectionTheme: React.FC<SectionThemeProps> = ({ invertComponents }) => {
             padding="1rem"
             height="auto"
             width="320px"
-            bg="#ddb7ac"
+            bg={bg}
             borderRadius="92px 8px 92px 8px"
           >
             <Text lineHeight="1.3rem" fontSize="sm" padding="1rem">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut
-              assumenda aliquam nihil, tempora rem repudiandae dignissimos
-              praesentium ratione alias aspernatur saepe officia inventore
-              architecto consequatur delectus dicta dolore dolor voluptate
-              asperiores? Quas, ducimus omnis vel, rem, optio beatae sed
-              aspernatur ratione explicabo neque repellendus quae. Unde sed
-              doloribus et ipsum vel asperiores dolorem dignissimos incidunt
-              consectetur, voluptas sequi iste veritatis.
+              {description}
             </Text>
           </Flex>
-          <Link
-            paddingRight="3rem"
-            display="flex"
-            alignItems="center"
-            gap="0.5rem"
-          >
-            <Heading fontSize="small">Saiba mais</Heading>
-            <Icon as={FaArrowRight} fontSize="sm" />
-          </Link>
+          {learnMore && (
+            <Link
+              paddingRight="3rem"
+              display="flex"
+              alignItems="center"
+              gap="0.5rem"
+            >
+              <Heading fontSize="small">Ver conteúdo completo</Heading>
+              <Icon as={FaArrowRight} fontSize="sm" />
+            </Link>
+          )}
         </Flex>
       </Flex>
       <Flex
@@ -64,7 +74,7 @@ const SectionTheme: React.FC<SectionThemeProps> = ({ invertComponents }) => {
         padding="4rem 0"
       >
         <ImageComp
-          src="/images/malu.jpeg"
+          src={srcImage}
           height="400px"
           width="300px"
           layout="fill"
