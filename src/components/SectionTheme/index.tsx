@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import ImageComp from '../Image';
+import ImagesGroups from '../ImagesGroups';
 
 interface SectionThemeProps {
   invertComponents?: boolean;
@@ -43,14 +43,17 @@ const SectionTheme: React.FC<SectionThemeProps> = ({
       padding="2rem 3rem"
       gap="2rem"
       flexDirection={invertComponents ? 'row-reverse' : 'row'}
+      marginBottom={isLargerThan650 ? '2rem' : '6rem'}
     >
       <Flex
-        width={!isLargerThan900 ? 'calc(100% - 400px)' : '100%'}
+        width={!isLargerThan900 ? 'calc(100% - 400px)' : 'auto'}
         flexDirection="column"
-        gap="2rem"
+        justifyContent="space-between"
+        alignItems={invertComponents ? 'flex-end' : 'flex-start'}
       >
         <Heading
-          w="100%"
+          paddingLeft={invertComponents ? '0' : '2rem'}
+          paddingRight={invertComponents ? '2rem' : '0'}
           fontFamily="New york"
           fontWeight="normal"
           fontSize={isLargerThan650 ? '3rem' : '4.5rem'}
@@ -61,28 +64,28 @@ const SectionTheme: React.FC<SectionThemeProps> = ({
         </Heading>
 
         <Flex
-          flexDirection={isLargerThan900 ? 'column' : 'row'}
-          justifyContent="space-between"
-          alignItems={isLargerThan900 ? 'center' : 'flex-end'}
+          padding="1rem"
+          height="auto"
+          width={isLargerThan650 ? '100%' : '80%'}
+          bg={bg}
+          borderRadius="92px 8px 92px 8px"
+          position="relative"
+          flexDirection="column"
+          alignItems="flex-end"
           gap="1rem"
         >
-          <Flex
-            padding="1rem"
-            height="auto"
-            width="320px"
-            bg={bg}
-            borderRadius="92px 8px 92px 8px"
-          >
-            <Text lineHeight="1.3rem" fontSize="sm" padding="1rem">
-              {description}
-            </Text>
-          </Flex>
+          <Text lineHeight="1.3rem" fontSize="sm" padding="1rem">
+            {description}
+          </Text>
           {learnMore && (
             <Link
-              paddingRight="3rem"
               display="flex"
               alignItems="center"
               gap="0.5rem"
+              bottom="0"
+              right="0"
+              py="1rem"
+              paddingRight="3rem"
             >
               <Heading fontSize="small">Ver conteúdo completo</Heading>
               <Icon as={FaArrowRight} fontSize="sm" />
@@ -90,23 +93,7 @@ const SectionTheme: React.FC<SectionThemeProps> = ({
           )}
         </Flex>
       </Flex>
-      {!isLargerThan900 && (
-        <Flex
-          width="40%"
-          height="auto"
-          borderRadius="92px 8px 92px 8px"
-          justifyContent="center"
-          padding="4rem 0"
-        >
-          <ImageComp
-            src={srcImage}
-            height="400px"
-            width="300px"
-            layout="fill"
-            objectFit="contain"
-          />
-        </Flex>
-      )}
+      {!isLargerThan900 && <ImagesGroups bg={bg} srcImage={srcImage} />}
     </Flex>
   );
 };

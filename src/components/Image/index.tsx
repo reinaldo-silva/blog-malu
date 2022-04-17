@@ -8,9 +8,7 @@ const customLoader = ({ src }: any) => {
 
 interface ImageProps extends ImagePropsNext {
   src: string;
-  flipImage?: boolean;
   fallbackSrc?: string;
-  border?: boolean;
   width?: string;
   height?: string;
 }
@@ -18,32 +16,21 @@ interface ImageProps extends ImagePropsNext {
 const ImageComp: React.FC<ImageProps> = ({
   src,
   fallbackSrc = '/images/placeholder-image.png',
-  flipImage = false,
-  layout = 'fixed',
+  layout = 'fill',
   objectFit = 'contain',
-  width = '10px',
-  height = '10px',
-  border,
+  width = '100px',
+  height = '100px',
   ...rest
 }) => {
   const [imageSrc, setImageSrc] = useState(src);
 
   return (
-    <Flex
-      borderRadius="8px"
-      border={border ? '4px solid' : ''}
-      width={width}
-      height={height}
-      borderColor={border ? 'face2Go.white.50.8' : ''}
-      style={{ transform: `scaleX(${flipImage ? '-1' : '1'})` }}
-    >
+    <Flex width={width} height={height} position="relative">
       <Image
         {...rest}
         src={imageSrc}
-        layout={layout}
         objectFit={objectFit}
-        width={width}
-        height={height}
+        layout={layout}
         loader={customLoader}
         onError={() => {
           setImageSrc(fallbackSrc);

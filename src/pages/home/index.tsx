@@ -6,7 +6,7 @@ import SectionTheme from '../../components/SectionTheme';
 
 const Home: React.FC = () => {
   return (
-    <Center alignItems="flex-start" height="100%" bg="#f8f8f8">
+    <Center alignItems="flex-start" height="100%" bg="#efeeee" color="#474747">
       <Flex
         maxW="1100px"
         w="100%"
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
           description="
 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis eligendi dignissimos aspernatur inventore ullam, sunt explicabo voluptatibus optio dicta labore, neque repellendus sed commodi itaque consectetur voluptate provident perferendis. Labore alias cupiditate dolore, consequatur iure beatae tenetur, dolores rem voluptates itaque illo ipsam velit? Nam asperiores laudantium repellendus iste distinctio."
           srcImage="/images/malu2.jpeg"
-          bg="#f0d9d1"
+          bg="#d3c4be"
           id="me"
         />
         <SectionTheme
@@ -39,7 +39,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis eligendi digni
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis eligendi dignissimos aspernatur inventore ullam, sunt explicabo voluptatibus optio dicta labore, neque repellendus sed commodi itaque consectetur voluptate provident perferendis. Labore alias cupiditate dolore, consequatur iure beatae tenetur, dolores rem voluptates itaque illo ipsam velit? Nam asperiores laudantium repellendus iste distinctio."
           srcImage="/images/moda.jpg"
           learnMore
-          bg="#ddb7ac"
+          bg="#c4bdac"
           id="moda"
           invertComponents
         />
@@ -50,7 +50,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis eligendi digni
 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis eligendi dignissimos aspernatur inventore ullam, sunt explicabo voluptatibus optio dicta labore, neque repellendus sed commodi itaque consectetur voluptate provident perferendis. Labore alias cupiditate dolore, consequatur iure beatae tenetur, dolores rem voluptates itaque illo ipsam velit? Nam asperiores laudantium repellendus iste distinctio."
           srcImage="/images/make.jpeg"
           learnMore
-          bg="#999b85"
+          bg="#ebcfc4"
           id="make"
         />
 
