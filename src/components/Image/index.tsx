@@ -32,6 +32,8 @@ const ImageComp: React.FC<ImageProps> = ({
         objectFit={objectFit}
         layout={layout}
         loader={customLoader}
+        unoptimized
+        priority
         onError={() => {
           setImageSrc(fallbackSrc);
         }}

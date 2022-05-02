@@ -1,6 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import Script from 'next/script';
 import { AppProvider } from '../context/AppContext';
 import '../styles/global.css';
 
@@ -17,12 +18,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
       user-scalable=0"
         />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8611189972849907"
-          crossOrigin="anonymous"
-        ></script>
       </Head>
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8611189972849907"
+        crossOrigin="anonymous"
+      />
       <AppProvider>
         <Component {...pageProps} />
       </AppProvider>
