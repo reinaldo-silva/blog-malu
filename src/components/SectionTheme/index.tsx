@@ -6,7 +6,8 @@ import {
   Text,
   useMediaQuery,
 } from '@chakra-ui/react';
-import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import ImagesGroups from '../ImagesGroups';
 
@@ -18,6 +19,7 @@ interface SectionThemeProps {
   srcImage: string;
   bg: string;
   id: string;
+  path?: string;
 }
 
 const SectionTheme: React.FC<SectionThemeProps> = ({
@@ -28,13 +30,11 @@ const SectionTheme: React.FC<SectionThemeProps> = ({
   srcImage,
   bg,
   id,
+  path,
 }) => {
   const [isLargerThan900] = useMediaQuery('(max-width: 900px)');
   const [isLargerThan650] = useMediaQuery('(max-width: 650px)');
-
-  useEffect(() => {
-    console.log(isLargerThan900);
-  }, [isLargerThan900]);
+  const { push } = useRouter();
 
   return (
     <Flex
@@ -77,7 +77,7 @@ const SectionTheme: React.FC<SectionThemeProps> = ({
           <Text lineHeight="1.3rem" fontSize="sm" padding="1rem">
             {description}
           </Text>
-          {learnMore && (
+          {learnMore && path && (
             <Link
               display="flex"
               alignItems="center"
@@ -86,6 +86,7 @@ const SectionTheme: React.FC<SectionThemeProps> = ({
               right="0"
               py="1rem"
               paddingRight="3rem"
+              onClick={() => push(path)}
             >
               <Heading fontSize="small">Ver conteúdo completo</Heading>
               <Icon as={FaArrowRight} fontSize="sm" />

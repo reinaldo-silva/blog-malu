@@ -17,6 +17,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
       user-scalable=0"
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8611189972849907"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <AppProvider>
         <Component {...pageProps} />
