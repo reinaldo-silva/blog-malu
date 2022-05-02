@@ -53,7 +53,12 @@ interface SliderImages {
 
 const SliderImages: React.FC<SliderImages> = ({ images }) => {
   const [imageFullScreen, setImageFullScreen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentImage, setCurrentImage] = useState(1);
+
+  const handleOpenAllImages = useCallback(() => {
+    setCurrentImage(1);
+    setImageFullScreen(true);
+  }, []);
 
   return (
     <>
@@ -209,7 +214,7 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
           <Button
             bg="#c4bdac"
             _hover={{ background: '#c4bdac50' }}
-            onClick={() => setImageFullScreen(true)}
+            onClick={handleOpenAllImages}
           >
             Ver todas as fotos
           </Button>
