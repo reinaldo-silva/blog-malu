@@ -79,7 +79,7 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
             left={`-${(currentImage - 1) * 100}vw`}
             transition="0.6s"
             height="100vh"
-            zIndex={10}
+            zIndex={300}
             overflow="hidden"
             bg="linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 42.08%, rgba(0,0,0,0.7) 100%);"
           >
@@ -103,7 +103,7 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
             top="0"
             left="0"
             width="100%"
-            zIndex={11}
+            zIndex={310}
           >
             <Flex
               cursor="pointer"

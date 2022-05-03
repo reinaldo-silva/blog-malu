@@ -21,7 +21,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis eligendi digni
         learnMore
         path="/fashion"
         bg="#c4bdac"
-        id="moda"
+        id="fashion"
         invertComponents
       />
 

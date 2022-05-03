@@ -41,7 +41,6 @@ const BodyPage: React.FC<BodyPageProps> = ({ children }) => {
   return (
     <Center
       alignItems="flex-start"
-      height="100%"
       w="auto"
       bg="#efeeee"
       color="#474747"
@@ -50,20 +49,43 @@ const BodyPage: React.FC<BodyPageProps> = ({ children }) => {
       <Flex
         maxW="1100px"
         w="100%"
-        height="100%"
         flexDirection="column"
         bg="#f4efec"
         boxShadow="2xl"
+        position="relative"
       >
-        <Header />
-        <Flex width="100%" justifyContent="space-evenly" bg="#f8f8f8">
-          <LinkPage path="/fashion" description="Moda" href="#moda" />
-          <LinkPage path="/makeUp" description="Make up" href="#make" />
+        <Flex
+          flexDirection="column"
+          position="fixed"
+          maxW="1100px"
+          width="100%"
+          zIndex={200}
+          boxShadow="md"
+        >
+          <Header />
+          <Flex
+            width="100%"
+            justifyContent="space-evenly"
+            bg="#f8f8f8"
+            height="50px"
+          >
+            <LinkPage path="/fashion" description="Moda" href="#fashion" />
+            <LinkPage path="/makeUp" description="Make up" href="#make" />
+          </Flex>
         </Flex>
-        <Flex flexDirection="column" height="100%" width="auto">
+
+        <Flex
+          maxHeight="calc(100vh - 150px)"
+          flexDirection="column"
+          marginTop="150px"
+          height="100%"
+          width="auto"
+          overflowY="scroll"
+          scrollBehavior="smooth"
+        >
           {children}
+          <Footer />
         </Flex>
-        <Footer />
       </Flex>
     </Center>
   );

@@ -8,10 +8,6 @@ const Fashion: React.FC = () => {
   const images = [
     { id: 1, src: '/images/malu.jpeg' },
     { id: 2, src: '/images/malu2.jpeg' },
-    { id: 3, src: '/images/malu.jpeg' },
-    { id: 4, src: '/images/malu.jpeg' },
-    { id: 5, src: '/images/malu.jpeg' },
-    { id: 6, src: '/images/malu.jpeg' },
   ];
   return (
     <BodyPage>
