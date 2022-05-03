@@ -1,7 +1,6 @@
 import { ColorModeScript } from '@chakra-ui/react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
-
 export default class MyDocument extends Document {
   render() {
     return (
@@ -25,6 +24,12 @@ export default class MyDocument extends Document {
             rel="preload"
             href="/fonts/YesevaOne.ttf"
             as="font"
+            crossOrigin="anonymous"
+          />
+          <script
+            id="Adsense-id"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8611189972849907"
             crossOrigin="anonymous"
           />
         </Head>
