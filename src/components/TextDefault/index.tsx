@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react';
+import { Text, useMediaQuery } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 
 interface TextDefaultProps {
@@ -6,8 +6,14 @@ interface TextDefaultProps {
 }
 
 const TextDefault: React.FC<TextDefaultProps> = ({ children }) => {
+  const [isLargerThan700] = useMediaQuery('(max-width: 700px)');
+
   return (
-    <Text padding="2rem 5rem" fontSize="lg" lineHeight="2rem">
+    <Text
+      padding={isLargerThan700 ? '1rem 1.2rem' : '2rem 5rem'}
+      fontSize={isLargerThan700 ? 'md' : 'lg'}
+      lineHeight={isLargerThan700 ? '1.5rem' : '2rem'}
+    >
       {children}
     </Text>
   );

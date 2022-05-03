@@ -1,10 +1,17 @@
-import { Button, Flex, Heading, Icon, Text } from '@chakra-ui/react';
+import {
+  Button,
+  Flex,
+  Heading,
+  Icon,
+  Text,
+  useMediaQuery,
+} from '@chakra-ui/react';
 import React, { useCallback, useState } from 'react';
+import { IoCloseSharp } from 'react-icons/io5';
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from 'react-icons/md';
-import { IoCloseSharp } from 'react-icons/io5';
 import ImageComp from '../Image';
 
 interface ImageProps {
@@ -52,6 +59,8 @@ interface SliderImages {
 }
 
 const SliderImages: React.FC<SliderImages> = ({ images }) => {
+  const [isLargerThan850] = useMediaQuery('(max-width: 850px)');
+  const [isLargerThan700] = useMediaQuery('(max-width: 700px)');
   const [imageFullScreen, setImageFullScreen] = useState(false);
   const [currentImage, setCurrentImage] = useState(1);
 
@@ -80,6 +89,7 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
                 width="100vw"
                 height="100%"
                 alignItems="center"
+                onClick={() => setImageFullScreen(false)}
               >
                 <Imagem id={image.id} fullScreen src={image.src} />
               </Flex>
@@ -97,9 +107,9 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
           >
             <Flex
               cursor="pointer"
-              width="200px"
+              width={isLargerThan850 ? '100px' : '200px'}
               height="100%"
-              bg="rgba(0,0,0,0.5)"
+              bg={isLargerThan700 ? '' : 'rgba(0,0,0,0.5)'}
               alignItems="center"
               justifyContent="center"
               onClick={() =>
@@ -122,7 +132,7 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
               color="#f8f8f8"
               cursor="pointer"
               gap="0.2rem"
-              padding="2rem 0"
+              padding="1rem"
               onClick={() => setImageFullScreen(false)}
             >
               <Text fontWeight="bold" fontSize="lg">
@@ -132,9 +142,9 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
             </Flex>
             <Flex
               cursor="pointer"
-              width="200px"
+              width={isLargerThan850 ? '100px' : '200px'}
               height="100%"
-              bg="rgba(0,0,0,0.5)"
+              bg={isLargerThan700 ? '' : 'rgba(0,0,0,0.5)'}
               alignItems="center"
               justifyContent="center"
               onClick={() =>
@@ -152,9 +162,13 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
           </Flex>
         </>
       )}
-      <Flex>
+      <Flex
+        flexDirection={isLargerThan850 ? 'column-reverse' : 'row'}
+        width="100%"
+        alignItems="center"
+      >
         <Flex
-          width="calc(100% - 400px)"
+          width={isLargerThan850 ? '90%' : 'calc(100% - 400px)'}
           justifyContent="center"
           gap="1rem"
           flexDirection="column"
@@ -176,16 +190,18 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
               );
             })}
           </Flex>
-          <Flex height="auto" width="100%" flexDirection="column">
-            <Text padding="1rem 5rem" fontSize="sm">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum id
-              pariatur eligendi ullam fuga fugit nam eaque molestias quas non
-              corrupti at dolorum consequatur repudiandae quos ea, ipsa beatae.
-              Ab dolor, consequatur laborum dolorem recusandae veritatis unde.
-              Porro nesciunt soluta aliquid ipsam quidem quasi. Quaerat
-              laudantium rerum veniam inventore voluptatem.
-            </Text>
-          </Flex>
+          {!isLargerThan850 && (
+            <Flex height="auto" width="100%" flexDirection="column">
+              <Text padding="1rem 5rem" fontSize="sm">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum
+                id pariatur eligendi ullam fuga fugit nam eaque molestias quas
+                non corrupti at dolorum consequatur repudiandae quos ea, ipsa
+                beatae. Ab dolor, consequatur laborum dolorem recusandae
+                veritatis unde. Porro nesciunt soluta aliquid ipsam quidem
+                quasi. Quaerat laudantium rerum veniam inventore voluptatem.
+              </Text>
+            </Flex>
+          )}
         </Flex>
         <Flex
           height="auto"
@@ -195,6 +211,7 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
           position="relative"
           paddingY="2rem"
           flexDirection="column"
+          gap="2rem"
         >
           <Flex
             height="200px"
@@ -224,7 +241,7 @@ const SliderImages: React.FC<SliderImages> = ({ images }) => {
             fontWeight="normal"
             fontSize="3rem"
             color="#474747"
-            width="100%"
+            width={isLargerThan850 ? '90%' : '100%'}
             paddingRight="2rem"
             paddingTop="2rem"
           >
